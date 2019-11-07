@@ -9,15 +9,15 @@ public class TestingMain {
         Calculator calculator1 = new Calculator(5, 8);
 
         if(calculator1.add() == 13) {
-            System.out.println("Adding is OK");
+            System.out.println("add is OK");
         }else{
-            System.out.println("Adding has Error");
+            System.out.println("add  has Error");
         }
 
         if(calculator1.subtraction() == -3) {
-            System.out.println("Subtractionningn is OK");
+            System.out.println("subtraction is OK");
         }else{
-            System.out.println("Subtractionning has Error");
+            System.out.println("subtraction has Error");
         }
     }
 }
