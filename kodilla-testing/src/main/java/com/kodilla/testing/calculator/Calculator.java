@@ -5,24 +5,6 @@ public class Calculator {
         private int a;
         private int b;
 
-        public Calculator (int a, int b){
-        this.a=a;
-        this.b=b;
-        }
-
-        public Calculator(){
-            a=0;
-            b=0;
-        }
-
-    public int getA() {
-        return a;
-    }
-
-    public int getB() {
-        return b;
-    }
-
     public int add(int a, int b){
            return a+b;
         }
