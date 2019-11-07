@@ -6,18 +6,18 @@ public class TestingMain {
     public static void main(String[] args) {
         //    System.out.println("Moduł 6. Wprowadzenie to testowania oprogramowania");
 
-        Calculator calculator1 = new Calculator(5, 8);
+        Calculator calculator1 = new Calculator();
 
-        if(calculator1.add() == 13) {
-            System.out.println("add is OK");
+        if(calculator1.add(5,8) == 13) {
+            System.out.println("Addition is OK");
         }else{
-            System.out.println("add  has Error");
+            System.out.println("Addition  has Error");
         }
 
-        if(calculator1.subtraction() == -3) {
-            System.out.println("subtraction is OK");
+        if(calculator1.subtract(5,8) == -3) {
+            System.out.println("Subtraction is OK");
         }else{
-            System.out.println("subtraction has Error");
+            System.out.println("Subtraction has Error");
         }
     }
 }

@@ -10,10 +10,23 @@ public class Calculator {
         this.b=b;
         }
 
-        public int add(){
+        public Calculator(){
+            a=0;
+            b=0;
+        }
+
+    public int getA() {
+        return a;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public int add(int a, int b){
            return a+b;
         }
-        public int subtraction(){
-                return (a-b);
+        public int subtract(int a, int b){
+            return a-b;
         }
 }
