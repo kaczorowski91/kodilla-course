@@ -37,11 +37,6 @@ public class ForumStatistics {
             averageCommentsPerPost = 0;
         } else {
 
-            if (statistics.usersNames().size() != 0) {
-                averagePostsPerUser = statistics.postsCount() / statistics.usersNames().size();
-            } else {
-                averagePostsPerUser = 0;
-            }
             if (statistics.postsCount() != 0) {
                 averageCommentsPerPost = statistics.commentsCount() / statistics.usersNames().size();
             } else {
