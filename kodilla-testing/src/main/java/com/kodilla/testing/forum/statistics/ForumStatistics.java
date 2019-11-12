@@ -37,6 +37,8 @@ public class ForumStatistics {
             averageCommentsPerPost = 0;
         } else {
 
+            averagePostsPerUser = statistics.postsCount() / statistics.usersNames().size();
+
             if (statistics.postsCount() != 0) {
                 averageCommentsPerPost = statistics.commentsCount() / statistics.usersNames().size();
             } else {
