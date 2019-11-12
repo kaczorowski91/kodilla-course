@@ -36,12 +36,12 @@ public class ForumTestSuite {
         Mockito.when(statisticsMock.usersNames()).thenReturn(listUserNames);
         Mockito.when(statisticsMock.postsCount()).thenReturn(0);
         Mockito.when(statisticsMock.commentsCount()).thenReturn(10);
-        StatisticsCalculate statisticsCalculate = new StatisticsCalculate(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
         //When
-        statisticsCalculate.calculateAdvStatistics(statisticsMock);
-        statisticsCalculate.showStatistics();
+        forumStatistics.calculateAdvStatistics(statisticsMock);
+        forumStatistics.showStatistics();
         //Then
-        Assert.assertEquals(0, statisticsCalculate.avaragePostsPerUser);
+        Assert.assertEquals(0, forumStatistics.getAveragePostsPerUser());
     }
 
     @Test
@@ -53,12 +53,12 @@ public class ForumTestSuite {
         Mockito.when(statisticsMock.usersNames()).thenReturn(listUserNames);
         Mockito.when(statisticsMock.postsCount()).thenReturn(1000);
         Mockito.when(statisticsMock.commentsCount()).thenReturn(1);
-        StatisticsCalculate statisticsCalculate = new StatisticsCalculate(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
         //When
-        statisticsCalculate.calculateAdvStatistics(statisticsMock);
-        statisticsCalculate.showStatistics();
+        forumStatistics.calculateAdvStatistics(statisticsMock);
+        forumStatistics.showStatistics();
         //Then
-        Assert.assertEquals(1000, statisticsCalculate.avaragePostsPerUser);
+        Assert.assertEquals(1000, forumStatistics.getAveragePostsPerUser());
     }
 
     @Test
@@ -70,12 +70,12 @@ public class ForumTestSuite {
         Mockito.when(statisticsMock.usersNames()).thenReturn(listUserNames);
         Mockito.when(statisticsMock.postsCount()).thenReturn(1000);
         Mockito.when(statisticsMock.commentsCount()).thenReturn(0);
-        StatisticsCalculate statisticsCalculate = new StatisticsCalculate(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
         //When
-        statisticsCalculate.calculateAdvStatistics(statisticsMock);
-        statisticsCalculate.showStatistics();
+        forumStatistics.calculateAdvStatistics(statisticsMock);
+        forumStatistics.showStatistics();
         //Then
-        Assert.assertEquals(0, statisticsCalculate.avarageCommentsPerPost);
+        Assert.assertEquals(0, forumStatistics.getAverageCommentsPerPost());
     }
 
     @Test
@@ -87,12 +87,12 @@ public class ForumTestSuite {
         Mockito.when(statisticsMock.usersNames()).thenReturn(listUserNames);
         Mockito.when(statisticsMock.postsCount()).thenReturn(5);
         Mockito.when(statisticsMock.commentsCount()).thenReturn(10);
-        StatisticsCalculate statisticsCalculate = new StatisticsCalculate(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
         //When
-        statisticsCalculate.calculateAdvStatistics(statisticsMock);
-        statisticsCalculate.showStatistics();
+        forumStatistics.calculateAdvStatistics(statisticsMock);
+        forumStatistics.showStatistics();
         //Then
-        Assert.assertEquals(10, statisticsCalculate.avarageCommentsPerPost);
+        Assert.assertEquals(10, forumStatistics.getAverageCommentsPerPost());
     }
 
     @Test
@@ -104,12 +104,12 @@ public class ForumTestSuite {
         Mockito.when(statisticsMock.usersNames()).thenReturn(listUserNames);
         Mockito.when(statisticsMock.postsCount()).thenReturn(10);
         Mockito.when(statisticsMock.commentsCount()).thenReturn(5);
-        StatisticsCalculate statisticsCalculate = new StatisticsCalculate(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
         //When
-        statisticsCalculate.calculateAdvStatistics(statisticsMock);
-        statisticsCalculate.showStatistics();
+        forumStatistics.calculateAdvStatistics(statisticsMock);
+        forumStatistics.showStatistics();
         //Then
-        Assert.assertEquals(5, statisticsCalculate.avarageCommentsPerPost);
+        Assert.assertEquals(5, forumStatistics.getAverageCommentsPerPost());
     }
 
 
@@ -121,12 +121,12 @@ public class ForumTestSuite {
         Mockito.when(statisticsMock.usersNames()).thenReturn(listUserNames);
         Mockito.when(statisticsMock.postsCount()).thenReturn(0);
         Mockito.when(statisticsMock.commentsCount()).thenReturn(0);
-        StatisticsCalculate statisticsCalculate = new StatisticsCalculate(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
         //When
-        statisticsCalculate.calculateAdvStatistics(statisticsMock);
-        statisticsCalculate.showStatistics();
+        forumStatistics.calculateAdvStatistics(statisticsMock);
+        forumStatistics.showStatistics();
         //Then
-        Assert.assertEquals(0, statisticsCalculate.avarageCommentsPerUser);
+        Assert.assertEquals(0, forumStatistics.getAveragePostsPerUser());
     }
 
     @Test
@@ -138,13 +138,13 @@ public class ForumTestSuite {
             listUserNames.add("User " + (i + 1));
         }
         Mockito.when(statisticsMock.usersNames()).thenReturn(listUserNames);
-        Mockito.when(statisticsMock.postsCount()).thenReturn(0);
+        Mockito.when(statisticsMock.postsCount()).thenReturn(10);
         Mockito.when(statisticsMock.commentsCount()).thenReturn(1000);
-        StatisticsCalculate statisticsCalculate = new StatisticsCalculate(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
         //When
-        statisticsCalculate.calculateAdvStatistics(statisticsMock);
-        statisticsCalculate.showStatistics();
+        forumStatistics.calculateAdvStatistics(statisticsMock);
+        forumStatistics.showStatistics();
         //Then
-        Assert.assertEquals(10, statisticsCalculate.avarageCommentsPerUser);
+        Assert.assertEquals(10, forumStatistics.getAverageCommentsPerUser());
     }
 }
