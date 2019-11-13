@@ -5,7 +5,7 @@ public class ForumStatistics {
     private int averagePostsPerUser;
     private int averageCommentsPerUser;
     private int averageCommentsPerPost;
-    private Statistics statistics;
+
 
     public int getAveragePostsPerUser() {
         return averagePostsPerUser;
@@ -19,19 +19,13 @@ public class ForumStatistics {
         return averageCommentsPerPost;
     }
 
-    public Statistics getStatistics() {
-        return statistics;
-    }
-
-
     public ForumStatistics(Statistics statistics) {
-        this.statistics = statistics;
     }
-
 
     public void calculateAdvStatistics(Statistics statistics) {
 
-        if (statistics.usersNames().size() == 0) {
+
+        if (statistics.usersNames().isEmpty()) {
             averagePostsPerUser = 0;
             averageCommentsPerUser = 0;
             averageCommentsPerPost = 0;
@@ -40,7 +34,7 @@ public class ForumStatistics {
             averagePostsPerUser = statistics.postsCount() / statistics.usersNames().size();
 
             if (statistics.postsCount() != 0) {
-                averageCommentsPerPost = statistics.commentsCount() / statistics.usersNames().size();
+                averageCommentsPerPost = statistics.commentsCount() / statistics.postsCount();
             } else {
                 averageCommentsPerPost = 0;
             }
@@ -53,9 +47,9 @@ public class ForumStatistics {
     }
 
     public void showStatistics() {
-        System.out.println("Avarage post per user " + averagePostsPerUser);
-        System.out.println("Avarage comments per user " + averageCommentsPerUser);
-        System.out.println("Avarage comments per post " + averageCommentsPerPost);
+        System.out.println("Average post per user " + averagePostsPerUser);
+        System.out.println("Average comments per user " + averageCommentsPerUser);
+        System.out.println("Average comments per post " + averageCommentsPerPost);
     }
 
 }

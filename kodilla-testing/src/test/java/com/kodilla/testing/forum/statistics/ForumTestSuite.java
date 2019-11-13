@@ -42,6 +42,8 @@ public class ForumTestSuite {
         forumStatistics.showStatistics();
         //Then
         Assert.assertEquals(0, forumStatistics.getAveragePostsPerUser());
+        Assert.assertEquals(10, forumStatistics.getAverageCommentsPerUser());
+        Assert.assertEquals(0, forumStatistics.getAverageCommentsPerPost());
     }
 
     @Test
@@ -52,13 +54,17 @@ public class ForumTestSuite {
         listUserNames.add("User ");
         Mockito.when(statisticsMock.usersNames()).thenReturn(listUserNames);
         Mockito.when(statisticsMock.postsCount()).thenReturn(1000);
-        Mockito.when(statisticsMock.commentsCount()).thenReturn(1);
+        Mockito.when(statisticsMock.commentsCount()).thenReturn(10000);
         ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         forumStatistics.showStatistics();
         //Then
         Assert.assertEquals(1000, forumStatistics.getAveragePostsPerUser());
+        Assert.assertEquals(10000, forumStatistics.getAverageCommentsPerUser());
+        Assert.assertEquals(10, forumStatistics.getAverageCommentsPerPost());
+
+
     }
 
     @Test
@@ -75,6 +81,8 @@ public class ForumTestSuite {
         forumStatistics.calculateAdvStatistics(statisticsMock);
         forumStatistics.showStatistics();
         //Then
+        Assert.assertEquals(1000, forumStatistics.getAveragePostsPerUser());
+        Assert.assertEquals(0, forumStatistics.getAverageCommentsPerUser());
         Assert.assertEquals(0, forumStatistics.getAverageCommentsPerPost());
     }
 
@@ -92,7 +100,9 @@ public class ForumTestSuite {
         forumStatistics.calculateAdvStatistics(statisticsMock);
         forumStatistics.showStatistics();
         //Then
-        Assert.assertEquals(10, forumStatistics.getAverageCommentsPerPost());
+        Assert.assertEquals(5, forumStatistics.getAveragePostsPerUser());
+        Assert.assertEquals(10, forumStatistics.getAverageCommentsPerUser());
+        Assert.assertEquals(2, forumStatistics.getAverageCommentsPerPost());
     }
 
     @Test
@@ -109,7 +119,9 @@ public class ForumTestSuite {
         forumStatistics.calculateAdvStatistics(statisticsMock);
         forumStatistics.showStatistics();
         //Then
-        Assert.assertEquals(5, forumStatistics.getAverageCommentsPerPost());
+        Assert.assertEquals(10, forumStatistics.getAveragePostsPerUser());
+        Assert.assertEquals(5, forumStatistics.getAverageCommentsPerUser());
+        Assert.assertEquals(0, forumStatistics.getAverageCommentsPerPost());
     }
 
 
@@ -127,6 +139,8 @@ public class ForumTestSuite {
         forumStatistics.showStatistics();
         //Then
         Assert.assertEquals(0, forumStatistics.getAveragePostsPerUser());
+        Assert.assertEquals(0, forumStatistics.getAverageCommentsPerUser());
+        Assert.assertEquals(0, forumStatistics.getAverageCommentsPerPost());
     }
 
     @Test
@@ -145,6 +159,8 @@ public class ForumTestSuite {
         forumStatistics.calculateAdvStatistics(statisticsMock);
         forumStatistics.showStatistics();
         //Then
+        Assert.assertEquals(0, forumStatistics.getAveragePostsPerUser());
         Assert.assertEquals(10, forumStatistics.getAverageCommentsPerUser());
+        Assert.assertEquals(100, forumStatistics.getAverageCommentsPerPost());
     }
 }
