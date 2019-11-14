@@ -36,7 +36,7 @@ public class ForumTestSuite {
         Mockito.when(statisticsMock.usersNames()).thenReturn(listUserNames);
         Mockito.when(statisticsMock.postsCount()).thenReturn(0);
         Mockito.when(statisticsMock.commentsCount()).thenReturn(10);
-        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics();
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         forumStatistics.showStatistics();
@@ -55,7 +55,7 @@ public class ForumTestSuite {
         Mockito.when(statisticsMock.usersNames()).thenReturn(listUserNames);
         Mockito.when(statisticsMock.postsCount()).thenReturn(1000);
         Mockito.when(statisticsMock.commentsCount()).thenReturn(10000);
-        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics();
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         forumStatistics.showStatistics();
@@ -76,7 +76,7 @@ public class ForumTestSuite {
         Mockito.when(statisticsMock.usersNames()).thenReturn(listUserNames);
         Mockito.when(statisticsMock.postsCount()).thenReturn(1000);
         Mockito.when(statisticsMock.commentsCount()).thenReturn(0);
-        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics();
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         forumStatistics.showStatistics();
@@ -95,7 +95,7 @@ public class ForumTestSuite {
         Mockito.when(statisticsMock.usersNames()).thenReturn(listUserNames);
         Mockito.when(statisticsMock.postsCount()).thenReturn(5);
         Mockito.when(statisticsMock.commentsCount()).thenReturn(10);
-        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics();
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         forumStatistics.showStatistics();
@@ -114,7 +114,7 @@ public class ForumTestSuite {
         Mockito.when(statisticsMock.usersNames()).thenReturn(listUserNames);
         Mockito.when(statisticsMock.postsCount()).thenReturn(10);
         Mockito.when(statisticsMock.commentsCount()).thenReturn(5);
-        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics();
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         forumStatistics.showStatistics();
@@ -133,7 +133,7 @@ public class ForumTestSuite {
         Mockito.when(statisticsMock.usersNames()).thenReturn(listUserNames);
         Mockito.when(statisticsMock.postsCount()).thenReturn(0);
         Mockito.when(statisticsMock.commentsCount()).thenReturn(0);
-        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics();
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         forumStatistics.showStatistics();
@@ -154,7 +154,7 @@ public class ForumTestSuite {
         Mockito.when(statisticsMock.usersNames()).thenReturn(listUserNames);
         Mockito.when(statisticsMock.postsCount()).thenReturn(10);
         Mockito.when(statisticsMock.commentsCount()).thenReturn(1000);
-        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics();
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         forumStatistics.showStatistics();

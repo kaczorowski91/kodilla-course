@@ -19,9 +19,6 @@ public class ForumStatistics {
         return averageCommentsPerPost;
     }
 
-    public ForumStatistics(Statistics statistics) {
-    }
-
     public void calculateAdvStatistics(Statistics statistics) {
 
 
