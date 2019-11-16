@@ -1,22 +1,31 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.person.People;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+
+import java.util.Map;
+import java.util.stream.Collectors;
+
 
 public class StreamMain {
     public static void main(String[] args) {
 
+        //Task #7.3
+        Forum forum = new Forum();
+        Map<Integer, ForumUser> theResultStringOfUsers = forum.getList().stream()
+                .filter(forumUser -> forumUser.getSex() == 'M')
+                .filter(forumUser -> forumUser.getBirthday().getDayOfYear() > 20)
+                .filter(forumUser -> forumUser.getPostQuantity() > 0)
+                .collect(Collectors.toMap(ForumUser::getId, forumUser -> forumUser));
 
-        People.getList().stream()
-                    .map(s -> s.toUpperCase())
-                    .forEach(System.out::println);
+        System.out.println("# elements: " + theResultStringOfUsers.size());
+        theResultStringOfUsers.entrySet().stream()
+                .map(entry -> entry.getKey() + ": " + entry.getValue())
+                .forEach(System.out::println);
 
-        People.getList().stream()
-                .map(String::toUpperCase)
-                .forEach(s -> System.out.println(s));
 
         // Task #7.1
-         String poem = "Litwo Ojczyno Moja";
+/*         String poem = "Litwo Ojczyno Moja";
         System.out.println("Original poem " + poem);
 
         PoemBeautifier poemBeautifier = new PoemBeautifier();
@@ -39,7 +48,7 @@ public class StreamMain {
         poemBeautifier.beautify(poem, (text) -> {
             System.out.println("Poem with modified sign L on R");
             return text.replace('L','R');
-        });
+        });*/
 
     }
 }
