@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -144,21 +145,26 @@ public class BoardTestSuite {
         //When
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
-                long longTask = project.getTaskLists().stream()
+        long amountOfTasks = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
-                .flatMap(n -> n.getTasks().stream())
-                .count();
+                .mapToLong(n -> n.getTasks().size())
+                .sum();
+
         List<TaskList> inProgressTasksSumOfRealisationDays = new ArrayList<>();
-        /*inProgressTasks.add(new TaskList("In progress"));
-        long sumOfDays= project.getTaskLists().stream()
+        inProgressTasks.add(new TaskList("In progress"));
+
+        long sumOfDays = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(n -> n.getTasks().stream())
-                .map(s->s.getDeadline())*/
+                .map(task -> ChronoUnit.DAYS.between(task.getCreated(), LocalDate.now()))
+                .reduce(0L, Long::sum);
 
 
+        double avarage = sumOfDays/(double)amountOfTasks;
         //Then
-        Assert.assertEquals(3,longTask);
-      //  Assert.assertEquals(2,sumOfDays);
+         Assert.assertEquals(3, amountOfTasks);
+         Assert.assertEquals(30,sumOfDays);
+        Assert.assertEquals(10,avarage,0);
 
     }
 
