@@ -1,4 +1,5 @@
 package com.kodilla.exception.test;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,7 +23,7 @@ public class FindFlight {
 
         FindFlight findFlight = new FindFlight();
 
-        Flight flight = new Flight("Paris","Warsaw");
+        Flight flight = new Flight("Paris", "Warsaw");
 
         findFlight.flightAvailable(flight);
     }

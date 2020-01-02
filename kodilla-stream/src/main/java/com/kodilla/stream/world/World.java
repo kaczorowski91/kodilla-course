@@ -5,7 +5,7 @@ import java.util.List;
 
 public class World {
 
-private final List <Continent> continents;
+    private final List<Continent> continents;
 
     public List<Continent> getContinents() {
         return continents;
@@ -15,7 +15,7 @@ private final List <Continent> continents;
         this.continents = continents;
     }
 
-    public BigDecimal getPeopleQuantity(){
+    public BigDecimal getPeopleQuantity() {
         return continents.stream()
                 .flatMap(continent -> continent.getCountries().stream())
                 .map(Country::getPeopleQuantity)

@@ -1,31 +1,37 @@
 package com.kodilla.testing.collection;
 
-        import com.kodilla.testing.collection.OddNumberExterminator;
-        import org.junit.Assert;
-        import org.junit.Test;
-        import java.util.ArrayList;
-        import org.junit.*;
+import com.kodilla.testing.collection.OddNumberExterminator;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.ArrayList;
+
+import org.junit.*;
 
 public class CollectionTestSuite {
 
     @Before
-    public void before(){
+    public void before() {
         System.out.println("Test Case: begin");
     }
+
     @After
-    public void after(){
+    public void after() {
         System.out.println("Test Case: end");
     }
+
     @BeforeClass
     public static void beforeClass() {
         System.out.println("Test Suite: begin");
     }
+
     @AfterClass
     public static void afterClass() {
         System.out.println("Test Suite: end");
     }
+
     @Test
-    public void testOddNumbersExterminatorEmptyList(){
+    public void testOddNumbersExterminatorEmptyList() {
         //Given
         OddNumberExterminator oddNumberExterminator = new OddNumberExterminator();
         //When
@@ -35,11 +41,12 @@ public class CollectionTestSuite {
         //Then
         Assert.assertEquals(0, result.size());
     }
+
     @Test
-    public void testOddNumbersExterminatorNormalList(){
+    public void testOddNumbersExterminatorNormalList() {
         //Given
         OddNumberExterminator oddNumberExterminator = new OddNumberExterminator();
-        ArrayList<Integer> testList= new ArrayList<>();
+        ArrayList<Integer> testList = new ArrayList<>();
         testList.add(5);
         testList.add(10);
         testList.add(11);

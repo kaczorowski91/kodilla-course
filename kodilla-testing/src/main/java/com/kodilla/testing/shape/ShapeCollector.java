@@ -15,7 +15,7 @@ public class ShapeCollector {
     }
 
     public Shape getFigure(int n) {
-         return shapeList.get(n);
+        return shapeList.get(n);
     }
 
     public ArrayList<Shape> showFigures() {

@@ -36,8 +36,6 @@ public class User {
         if (!(o instanceof User)) return false;
         User user = (User) o;
         return Objects.equals(getUsername(), user.getUsername()) &&
-
-
                 Objects.equals(getRealName(), user.getRealName());
     }
 

@@ -160,11 +160,11 @@ public class BoardTestSuite {
                 .reduce(0L, Long::sum);
 
 
-        double avarage = sumOfDays/(double)amountOfTasks;
+        double avarage = sumOfDays / (double) amountOfTasks;
         //Then
-         Assert.assertEquals(3, amountOfTasks);
-         Assert.assertEquals(30,sumOfDays);
-        Assert.assertEquals(10,avarage,0);
+        Assert.assertEquals(3, amountOfTasks);
+        Assert.assertEquals(30, sumOfDays);
+        Assert.assertEquals(10, avarage, 0);
 
     }
 

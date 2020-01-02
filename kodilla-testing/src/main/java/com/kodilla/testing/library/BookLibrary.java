@@ -2,6 +2,7 @@ package com.kodilla.testing.library;
 
 import java.util.ArrayList;
 import java.util.List;
+
 public class BookLibrary {
     LibraryDatabase libraryDatabase;
 
@@ -18,7 +19,8 @@ public class BookLibrary {
         bookList = resultList;
         return bookList;
     }
-    public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
+
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
         List<Book> userList = new ArrayList<Book>();
         return userList;
     }

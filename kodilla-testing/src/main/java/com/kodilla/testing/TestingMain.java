@@ -1,3 +1,4 @@
+/*
 package com.kodilla.testing;
 
 import com.kodilla.testing.calculator.Calculator;
@@ -19,4 +20,4 @@ public class TestingMain {
             System.out.println("Subtraction has Error");
         }
     }
-}
+}*/

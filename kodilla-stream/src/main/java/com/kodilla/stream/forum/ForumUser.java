@@ -27,7 +27,7 @@ public final class ForumUser {
 
     public Set<String> getLocationsOfFriends() {
         return friends.stream()
-                .map(friend -> friend.getLocation())
+                .map(ForumUser::getLocation)
                 .collect(Collectors.toSet());
     }
 
@@ -77,8 +77,5 @@ public final class ForumUser {
         return username.hashCode();
 
     }
-
-
-
 
 }

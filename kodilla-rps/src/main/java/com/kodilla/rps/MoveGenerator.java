@@ -7,9 +7,8 @@ public class MoveGenerator {
 
 
     public Integer moveGenerator() {
-        return mvGenerator.nextInt(3)+1;
+        return mvGenerator.nextInt(3) + 1;
     }
-
 
 
 }

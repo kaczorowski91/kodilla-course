@@ -8,7 +8,7 @@ public class RpsRunner {
         MoveGenerator moveGenerator = new MoveGenerator();
 
 
-    gameLoop.gameRun();
+        gameLoop.gameRun();
     }
 
 }
