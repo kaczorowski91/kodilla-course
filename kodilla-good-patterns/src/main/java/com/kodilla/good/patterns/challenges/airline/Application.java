@@ -8,8 +8,6 @@ public class Application {
         FlightRetriever flightRetriever = new FlightRetriever();
 
         flightService.availableFlight(flightRetriever.retriever());
-      
-
 
     }
 }

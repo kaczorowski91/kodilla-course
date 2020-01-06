@@ -9,6 +9,6 @@ public interface Supplier {
 
     String supplierName();
 
-    boolean process(Client client, Map<Product, Integer> clientOrders);
+   void process(Client client, Map<Product, Integer> clientOrders);
 
 }

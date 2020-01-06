@@ -31,7 +31,17 @@ public class HealthyShop implements Supplier {
     }
 
     @Override
-    public boolean process(Client client, Map<Product, Integer> clientOrders) {
-        return false;
+    public void process(Client client, Map<Product, Integer> clientOrders) {
+
+        for (Map.Entry<Product, Integer> entry : clientOrders.entrySet()) {
+            Integer quantity = supplierProduct.get(entry.getKey());
+            if (quantity == null) {
+                System.out.println("ERROR");
+            }
+            if (entry.getValue() > quantity) {
+                System.out.println("ERROR");
+            }
+        }
+        System.out.println("GOOD");
     }
 }
