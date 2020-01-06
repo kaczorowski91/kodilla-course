@@ -2,7 +2,7 @@ package com.kodilla.good.patterns.challenges.allegro;
 
 import com.kodilla.good.patterns.challenges.allegro.model.Order;
 import com.kodilla.good.patterns.challenges.allegro.output.InformationService;
-import com.kodilla.good.patterns.challenges.allegro.prepareDate.SaleDto;
+import com.kodilla.good.patterns.challenges.allegro.prepareData.SaleDto;
 import com.kodilla.good.patterns.challenges.allegro.prepareSales.SalesService;
 import com.kodilla.good.patterns.challenges.allegro.savingData.SalesRepository;
 

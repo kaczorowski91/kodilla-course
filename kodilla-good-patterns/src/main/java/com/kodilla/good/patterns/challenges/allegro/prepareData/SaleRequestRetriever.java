@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.allegro.prepareDate;
+package com.kodilla.good.patterns.challenges.allegro.prepareData;
 
 import com.kodilla.good.patterns.challenges.allegro.model.Order;
 import com.kodilla.good.patterns.challenges.allegro.model.Product;
