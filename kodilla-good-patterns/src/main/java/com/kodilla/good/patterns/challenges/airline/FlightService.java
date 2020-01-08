@@ -14,14 +14,14 @@ public class FlightService {
         System.out.println("Available Flights:" + flight);
     }
 
-    public void availableFlightFromWarsaw(FlightRequest flightRequest) {
+    public void availableFlightFrom(FlightRequest flightRequest, Flight flight) {
 
-        String flight = flightRequest.getFlightList().stream()
-                .filter(f -> f.getDepartureFlight().equals("Warsaw"))
+        String availableFlightFrom = flightRequest.getFlightList().stream()
+                .filter(f -> f.getArrivalFlight().equals(flight.getDepartureFlight()))
                 .map(Flight::toString)
                 .collect(Collectors.joining("", "\n", ""));
 
-        System.out.println("Available flights from Warsaw:" + flight);
+        System.out.println("Available flights from Warsaw:" + availableFlightFrom);
     }
 
     public void availableFlightToParis(FlightRequest flightRequest) {
@@ -62,10 +62,6 @@ public class FlightService {
                 .collect(Collectors.toList());
 
       //  List<Flight> flightThrough = flightRequest.getFlightList().stream()
-
-
-
-
         System.out.println("TEST  flightFrom " + flightFrom + "TEST  flightThrough " );
     }
 

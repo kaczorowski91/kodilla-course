@@ -36,6 +36,9 @@ public class FlightRequestRetriever {
         flightList.add(flight12);
 
         return new FlightRequest(flightList);
+    }
 
+    public Flight flightRetriever(){
+        return new  Flight("Warsaw", "Paris");
     }
 }

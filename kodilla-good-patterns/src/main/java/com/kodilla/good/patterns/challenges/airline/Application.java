@@ -8,7 +8,7 @@ public class Application {
         FlightRequestRetriever flightRequestRetriever = new FlightRequestRetriever();
 
         flightService.availableFlight(flightRequestRetriever.retriever());
-        flightService.availableFlightFromWarsaw(flightRequestRetriever.retriever());
+        flightService.availableFlightFrom(flightRequestRetriever.retriever(),flightRequestRetriever.flightRetriever());
         flightService.availableFlightToParis(flightRequestRetriever.retriever());
         flightService.availableFlightFromWarsawToParisThroughRome(flightRequestRetriever.retriever());
         flightService.availableFlightFromWarsawToParisThroughAnywhere(flightRequestRetriever.retriever());
