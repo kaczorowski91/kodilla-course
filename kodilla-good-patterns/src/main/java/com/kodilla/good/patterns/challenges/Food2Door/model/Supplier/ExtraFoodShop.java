@@ -19,7 +19,7 @@ public class ExtraFoodShop implements Supplier {
         Map<Product, Integer> supplierProduct = new HashMap<>();
 
         supplierProduct.put(new Product("Pizza"), 1500);
-        supplierProduct.put(new Product("Hot dog"), 2500);
+        supplierProduct.put(new Product("Hot Dog"), 2500);
         supplierProduct.put(new Product("Hamburger"), 1310);
 
         return supplierProduct;
@@ -38,13 +38,13 @@ public class ExtraFoodShop implements Supplier {
 
             Integer quantity = supplierProduct.get(entry.getKey());
             if (quantity == null) {
-                System.out.println("Order can't be realize. Supplier hasn't this products");
+                System.out.println(entry.getKey()+" Order can't be realize. Supplier hasn't this products");
             }
             else if (entry.getValue() > quantity) {
-                System.out.println("Order can't be realize. Supplier hasn't enough quantity of products");
+                System.out.println(entry.getKey()+" Order can't be realize. Supplier hasn't enough quantity of products, supplier has only " + quantity);
             }
             else {
-                System.out.println("Order in progress ");
+                System.out.println(entry.getKey()+" Order in progress ");
             }
         }
     }
