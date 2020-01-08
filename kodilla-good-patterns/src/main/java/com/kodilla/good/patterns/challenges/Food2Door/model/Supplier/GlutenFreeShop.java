@@ -34,14 +34,17 @@ public class GlutenFreeShop implements Supplier {
     public void process(Client client, Map<Product, Integer> clientOrders) {
 
         for (Map.Entry<Product, Integer> entry : clientOrders.entrySet()) {
+
             Integer quantity = supplierProduct.get(entry.getKey());
             if (quantity == null) {
-                System.out.println("ERROR");
+                System.out.println(entry.getKey()+" Order can't be realize. Supplier hasn't this products");
             }
-            if (entry.getValue() > quantity) {
-                System.out.println("ERROR");
+            else if (entry.getValue() > quantity) {
+                System.out.println(entry.getKey()+" Order can't be realize. Supplier hasn't enough quantity of products, supplier has only " + quantity);
+            }
+            else {
+                System.out.println(entry.getKey()+" Order in progress ");
             }
         }
-        System.out.println("GOOD");
     }
 }
