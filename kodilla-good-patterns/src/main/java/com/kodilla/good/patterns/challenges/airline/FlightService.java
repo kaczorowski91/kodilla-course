@@ -41,7 +41,7 @@ public class FlightService {
                 .filter(f -> f.getDepartureFlight().equals(flight.getDepartureFlight()))
                 .filter(f -> !f.getArrivalFlight().equals(flight.getArrivalFlight()))
                 .map(Flight::toString)
-                .collect(Collectors.joining("","\n",""));
+                .collect(Collectors.joining("", "\n", ""));
 
         List<String> flightFromArrivalFlightList = flightRequest.getFlightList().stream()
                 .filter(f -> f.getDepartureFlight().equals(flight.getDepartureFlight()))
@@ -52,11 +52,10 @@ public class FlightService {
         String flightTo = flightRequest.getFlightList().stream()
                 .filter(f -> flightFromArrivalFlightList.contains(f.getDepartureFlight()))
                 .map(Flight::toString)
-                .collect(Collectors.joining("","\n",""));
+                .collect(Collectors.joining("", "\n", ""));
 
-        System.out.println("Available flights from "+ flight.getDepartureFlight()+ " to " + flight.getArrivalFlight()+
-                " through anywhere:\n"+ flightFrom+flightTo);
+        System.out.println("Available flights from " + flight.getDepartureFlight() + " to " + flight.getArrivalFlight() +
+                " through anywhere:\n" + flightFrom + flightTo);
     }
-
 
 }

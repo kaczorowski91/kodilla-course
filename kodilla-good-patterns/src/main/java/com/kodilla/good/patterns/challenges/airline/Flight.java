@@ -7,7 +7,6 @@ public class Flight {
     private final String departureFlight;
     private final String arrivalFlight;
 
-
     public Flight(String departureFlight, String arrivalFlight) {
         this.departureFlight = departureFlight;
         this.arrivalFlight = arrivalFlight;
@@ -20,7 +19,6 @@ public class Flight {
     public String getArrivalFlight() {
         return arrivalFlight;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -38,6 +36,6 @@ public class Flight {
 
     @Override
     public String toString() {
-        return departureFlight + " -> " +arrivalFlight+"\n";
+        return departureFlight + " -> " + arrivalFlight + "\n";
     }
 }

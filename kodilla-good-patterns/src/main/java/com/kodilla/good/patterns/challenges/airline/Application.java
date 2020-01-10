@@ -9,7 +9,7 @@ public class Application {
 
         flightService.availableFlight(flightRequestRetriever.retrieverFlightList());
         flightService.availableFlightFrom(flightRequestRetriever.retrieverFlightList(), flightRequestRetriever.flightRetriever());
-        flightService.availableFlightTo(flightRequestRetriever.retrieverFlightList(),flightRequestRetriever.flightRetriever());
-        flightService.availableFlightThrough(flightRequestRetriever.retrieverFlightList(),flightRequestRetriever.flightRetriever());
+        flightService.availableFlightTo(flightRequestRetriever.retrieverFlightList(), flightRequestRetriever.flightRetriever());
+        flightService.availableFlightThrough(flightRequestRetriever.retrieverFlightList(), flightRequestRetriever.flightRetriever());
     }
 }
