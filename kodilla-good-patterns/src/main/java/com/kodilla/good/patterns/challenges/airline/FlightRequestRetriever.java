@@ -5,7 +5,7 @@ import java.util.List;
 
 public class FlightRequestRetriever {
 
-    public FlightRequest retriever() {
+    public FlightRequest retrieverFlightList() {
 
         List<Flight> flightList = new ArrayList<>();
 
@@ -21,6 +21,8 @@ public class FlightRequestRetriever {
         Flight flight10 = new Flight("Rome", "Paris");
         Flight flight11 = new Flight("Atlanta", "Paris");
         Flight flight12 = new Flight("Helsinki", "Paris");
+        Flight flight13 = new Flight("Helsinki", "Warsaw");
+        Flight flight14 = new Flight("Rome", "Paris");
 
         flightList.add(flight1);
         flightList.add(flight2);
@@ -34,6 +36,8 @@ public class FlightRequestRetriever {
         flightList.add(flight10);
         flightList.add(flight11);
         flightList.add(flight12);
+        flightList.add(flight13);
+        flightList.add(flight14);
 
         return new FlightRequest(flightList);
     }

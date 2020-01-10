@@ -17,52 +17,45 @@ public class FlightService {
     public void availableFlightFrom(FlightRequest flightRequest, Flight flight) {
 
         String availableFlightFrom = flightRequest.getFlightList().stream()
-                .filter(f -> f.getArrivalFlight().equals(flight.getDepartureFlight()))
+                .filter(f -> f.getDepartureFlight().equals(flight.getDepartureFlight()))
                 .map(Flight::toString)
                 .collect(Collectors.joining("", "\n", ""));
 
-        System.out.println("Available flights from Warsaw:" + availableFlightFrom);
+        System.out.println("Available flights from " + flight.getDepartureFlight() + " " + availableFlightFrom);
     }
 
-    public void availableFlightToParis(FlightRequest flightRequest) {
+    public void availableFlightTo(FlightRequest flightRequest, Flight flight) {
 
-        String flight = flightRequest.getFlightList().stream()
-                .filter(f -> f.getDepartureFlight().equals("Warsaw"))
-                .filter(f -> f.getArrivalFlight().equals("Paris"))
+        String availableFlightTo = flightRequest.getFlightList().stream()
+                .filter(f -> f.getArrivalFlight().equals(flight.getArrivalFlight()))
                 .map(Flight::toString)
                 .collect(Collectors.joining("", "\n", ""));
 
-        System.out.println("Available flight to Paris: " + flight);
+        System.out.println("Available flight to " + flight.getArrivalFlight() + " " + availableFlightTo);
     }
 
-    public void availableFlightFromWarsawToParisThroughRome(FlightRequest flightRequest) {
+
+    public void availableFlightThrough(FlightRequest flightRequest, Flight flight) {
 
         String flightFrom = flightRequest.getFlightList().stream()
-                .filter(f -> f.getDepartureFlight().equals("Warsaw"))
-                .filter(f -> f.getArrivalFlight().equals("Rome"))
+                .filter(f -> f.getDepartureFlight().equals(flight.getDepartureFlight()))
+                .filter(f -> !f.getArrivalFlight().equals(flight.getArrivalFlight()))
                 .map(Flight::toString)
-                .collect(Collectors.joining("", "\n", ""));
+                .collect(Collectors.joining("","\n",""));
 
-        String flightTo = flightRequest.getFlightList().stream()
-                .filter(f -> f.getDepartureFlight().equals("Rome"))
-                .filter(f -> f.getArrivalFlight().equals("Paris"))
-                .map(Flight::toString)
-                .collect(Collectors.joining("", "", ""));
-
-        System.out.println("Available flight from Warsaw to Paris through Rome : " + flightFrom + flightTo);
-    }
-
-
-    public void availableFlightFromWarsawToParisThroughAnywhere(FlightRequest flightRequest) {
-
-        List<String> flightFrom = flightRequest.getFlightList().stream()
-                .filter(f -> f.getDepartureFlight().equals("Warsaw"))
-                .filter(f -> !f.getArrivalFlight().equals("Paris"))
+        List<String> flightFromArrivalFlightList = flightRequest.getFlightList().stream()
+                .filter(f -> f.getDepartureFlight().equals(flight.getDepartureFlight()))
+                .filter(f -> !f.getArrivalFlight().equals(flight.getArrivalFlight()))
                 .map(Flight::getArrivalFlight)
                 .collect(Collectors.toList());
 
-      //  List<Flight> flightThrough = flightRequest.getFlightList().stream()
-        System.out.println("TEST  flightFrom " + flightFrom + "TEST  flightThrough " );
+        String flightTo = flightRequest.getFlightList().stream()
+                .filter(f -> flightFromArrivalFlightList.contains(f.getDepartureFlight()))
+                .map(Flight::toString)
+                .collect(Collectors.joining("","\n",""));
+
+        System.out.println("Available flights from "+ flight.getDepartureFlight()+ " to " + flight.getArrivalFlight()+
+                " through anywhere:\n"+ flightFrom+flightTo);
     }
 
 
