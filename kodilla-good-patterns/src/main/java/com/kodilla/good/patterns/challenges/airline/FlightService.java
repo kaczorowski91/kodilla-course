@@ -34,7 +34,6 @@ public class FlightService {
         System.out.println("Available flight to " + flight.getArrivalFlight() + " " + availableFlightTo);
     }
 
-
     public void availableFlightThrough(FlightRequest flightRequest, Flight flight) {
 
         String flightFrom = flightRequest.getFlightList().stream()

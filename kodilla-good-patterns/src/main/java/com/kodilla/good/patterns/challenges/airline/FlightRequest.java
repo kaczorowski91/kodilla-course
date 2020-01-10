@@ -4,7 +4,6 @@ import java.util.List;
 
 public class FlightRequest {
 
-
     private final List<Flight> flightList;
 
     public FlightRequest(List<Flight> flightList) {
