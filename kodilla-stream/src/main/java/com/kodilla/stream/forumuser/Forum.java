@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Forum {
+public class Forum {
     private final List<ForumUser> theUserList = new ArrayList<>();
 
     public Forum() {
