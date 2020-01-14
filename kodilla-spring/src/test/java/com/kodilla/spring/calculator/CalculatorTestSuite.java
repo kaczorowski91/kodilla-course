@@ -9,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 @SpringBootTest
 public class CalculatorTestSuite {
 
-/*    @Test
+    @Test
     public void testCalculations() {
         //Given
         ApplicationContext context =
@@ -28,5 +28,5 @@ public class CalculatorTestSuite {
 
 
 
-    }*/
+    }
 }
