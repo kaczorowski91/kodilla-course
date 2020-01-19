@@ -10,6 +10,7 @@ public class TaskFactoryTestSuite {
         //Given
         TaskFactory taskFactory = new TaskFactory();
         //When
+
         Task drivingTask = taskFactory.makeTask(TaskFactory.DRIVINGTASK);
         //Then
         Assert.assertEquals("Driving_Task_01", drivingTask.getTaskName());
