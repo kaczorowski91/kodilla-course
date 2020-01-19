@@ -52,8 +52,8 @@ public class Bigmac {
         }
 
         public BigmacBuilder sauce(String sauce) {
-            if(sauce.equals("STANDARDSAUCE") || sauce.equals("THOUSANDISLANDDRESSING") ||
-                    sauce.equals("BARBECUESAUCE")){
+            if(sauce.equals(STANDARDSAUCE) || sauce.equals(THOUSANDISLANDDRESSING) ||
+                    sauce.equals(BARBECUESAUCE)){
                 this.sauce = sauce;
                 return this;
             }else
