@@ -14,7 +14,8 @@ public class TaskFactoryTestSuite {
         Task drivingTask = taskFactory.makeTask(TaskFactory.DRIVINGTASK);
         //Then
         Assert.assertEquals("Driving_Task_01", drivingTask.getTaskName());
-        Assert.assertEquals("Driving Task is complete", drivingTask.executeTask());
+        Assert.assertEquals(false, drivingTask.isTaskExecuted());
+        drivingTask.executeTask();
         Assert.assertEquals(true, drivingTask.isTaskExecuted());
     }
 
@@ -26,7 +27,8 @@ public class TaskFactoryTestSuite {
         Task paintingTask = taskFactory.makeTask(TaskFactory.PAINTINGTASK);
         //Then
         Assert.assertEquals("Painting_Task_01", paintingTask.getTaskName());
-        Assert.assertEquals("Painting Task is complete", paintingTask.executeTask());
+        Assert.assertEquals(false, paintingTask.isTaskExecuted());
+        paintingTask.executeTask();
         Assert.assertEquals(true, paintingTask.isTaskExecuted());
     }
 
@@ -38,8 +40,9 @@ public class TaskFactoryTestSuite {
         Task shoppingTask = taskFactory.makeTask(TaskFactory.SHOPPINGTASK);
         //Then
         Assert.assertEquals("Shopping_Task_01", shoppingTask.getTaskName());
-        Assert.assertEquals("Shopping Task is Complete", shoppingTask.executeTask());
         Assert.assertEquals(false, shoppingTask.isTaskExecuted());
+        shoppingTask.executeTask();
+        Assert.assertEquals(true, shoppingTask.isTaskExecuted());
     }
 }
 

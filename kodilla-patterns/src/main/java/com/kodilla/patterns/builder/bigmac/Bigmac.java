@@ -58,7 +58,6 @@ public class Bigmac {
                 return this;
             }else
                 throw new IllegalStateException("Incorrect name of sauce");
-
         }
 
         public BigmacBuilder ingredient(String ingredient) {
