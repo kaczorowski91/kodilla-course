@@ -12,9 +12,9 @@ public class BigmacTestSuite {
         Bigmac bigmac = new Bigmac.BigmacBuilder()
                 .ingredient("PRAWN")
                 .ingredient("CHEESE")
-                .sauce("THOUSANDISLANDDRESSING")
+                .sauce(Bigmac.THOUSANDISLANDDRESSING)
                 .burgers(3)
-                .bun("STANDARDROLL")
+                .bun(Bigmac.STANDARDROLL)
                 .build();
         System.out.println(bigmac);
 
