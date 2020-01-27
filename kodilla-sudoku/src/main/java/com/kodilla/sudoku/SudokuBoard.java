@@ -11,7 +11,7 @@ public class SudokuBoard {
 
     public SudokuBoard() {
         this.sudokuRowList = new ArrayList<>();
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < Processor.SIZE; i++) {
             sudokuRowList.add(new SudokuRow());
         }
     }
