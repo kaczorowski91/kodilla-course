@@ -7,11 +7,17 @@ import java.util.stream.Collectors;
 public class SudokuRow {
 
     List<SudokuElement> sudokuElementList;
+    List<Integer> listToSolve;
 
     public SudokuRow() {
         sudokuElementList = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
-            sudokuElementList.add(new SudokuElement(SudokuElement.EMPTY));
+
+            listToSolve = new ArrayList<>();
+            for (int j = 0; j < 9; j++) {
+                listToSolve.add(j + 1);
+            }
+            sudokuElementList.add(new SudokuElement(SudokuElement.EMPTY, listToSolve));
         }
     }
 
@@ -25,6 +31,10 @@ public class SudokuRow {
 
     public void setSudokuElementList(List<SudokuElement> sudokuElementList) {
         this.sudokuElementList = sudokuElementList;
+    }
+
+    public List<Integer> getListToSolve() {
+        return listToSolve;
     }
 
     @Override
