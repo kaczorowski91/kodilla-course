@@ -11,10 +11,10 @@ public class SudokuRow {
 
     public SudokuRow() {
         sudokuElementList = new ArrayList<>();
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < Processor.SIZE; i++) {
 
             listToSolve = new ArrayList<>();
-            for (int j = 0; j < 9; j++) {
+            for (int j = 0; j < Processor.SIZE; j++) {
                 listToSolve.add(j + 1);
             }
             sudokuElementList.add(new SudokuElement(SudokuElement.EMPTY, listToSolve));

@@ -1,13 +1,11 @@
 package com.kodilla.sudoku;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public class SudokuElement {
 
-    public static int EMPTY = -1;
+    public static final int EMPTY = -1;
     public int value;
     public List<Integer> listToSolve;
 
