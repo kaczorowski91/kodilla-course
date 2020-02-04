@@ -21,7 +21,6 @@ public class Processor {
     public void openGame() {
         System.out.println("Welcome in Sudoku Game:");
         System.out.println("Instruction- will be later\n");
- //       System.out.println(sudokuBoard.getSudokuRowList().get(0).sudokuElementList.get(0).getValue());
         System.out.println(sudokuBoard + "\n");
     }
 
