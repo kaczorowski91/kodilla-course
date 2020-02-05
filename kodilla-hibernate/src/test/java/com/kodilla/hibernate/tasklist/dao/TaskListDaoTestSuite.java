@@ -13,7 +13,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -26,18 +25,18 @@ public class TaskListDaoTestSuite {
     private static final String LISTNAME = "ListName1";
 
     @Test
-    public void testFindByListName(){
+    public void testFindByListName() {
         //Given
-        TaskList taskList1 = new TaskList(LISTNAME,"Description1");
+        taskListDao.deleteAll();
+        TaskList taskList1 = new TaskList(LISTNAME, "Description1");
         //When
         taskListDao.save(taskList1);
         //Then
         String name1 = taskList1.getListName();
         List<TaskList> newTaskList = taskListDao.findByListName(name1);
-
-        Assert.assertEquals(1, newTaskList );
+        Assert.assertEquals(1, newTaskList.size());
         //CleanUp
-        taskListDao.deleteAll();
+        taskListDao.delete(taskList1);
     }
 
     @Test
@@ -113,8 +112,5 @@ public class TaskListDaoTestSuite {
             taskListDao.deleteById(id);
         }
     }
-
-
-
 
 }
