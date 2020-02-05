@@ -1,8 +1,6 @@
 package com.kodilla.hibernate.tasklist;
 
-
 import com.kodilla.hibernate.task.Task;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -16,6 +14,14 @@ public class TaskList {
     private String description;
     private List<Task> tasks = new ArrayList<>();
 
+    public TaskList() {
+    }
+
+    public TaskList(String listName, String description) {
+        this.listName = listName;
+        this.description = description;
+    }
+
     @OneToMany (
             targetEntity = Task.class,
             mappedBy = "taskList",
@@ -28,15 +34,6 @@ public class TaskList {
 
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
-    }
-
-    public TaskList() {
-
-    }
-
-    public TaskList(String listName, String description) {
-        this.listName = listName;
-        this.description = description;
     }
 
     @Id
@@ -69,4 +66,3 @@ public class TaskList {
         this.description = description;
     }
 }
-
