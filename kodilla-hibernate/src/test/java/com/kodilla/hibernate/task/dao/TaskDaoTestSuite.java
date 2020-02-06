@@ -23,6 +23,7 @@ public class TaskDaoTestSuite {
     @Test
     public void testTaskDaoSave() {
         //Given
+        taskDao.deleteAll();
         Task task = new Task(DESCRIPTION, 7);
 
         //When
@@ -40,6 +41,7 @@ public class TaskDaoTestSuite {
     @Test
     public void testTaskDaoFindByDuration() {
         //Given
+        taskDao.deleteAll();
         Task task = new Task(DESCRIPTION, 7);
         taskDao.save(task);
         int duration = task.getDuration();
@@ -59,6 +61,7 @@ public class TaskDaoTestSuite {
     @Test
     public void testTaskDaoSaveWithFinancialDetails() {
         //Given
+        taskDao.deleteAll();
         Task task = new Task(DESCRIPTION, 30);
         task.setTaskFinancialDetails(new TaskFinancialDetails(new BigDecimal(120), false));
 
