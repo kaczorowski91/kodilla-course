@@ -27,6 +27,7 @@ public class TaskListDaoTestSuite {
     @Test
     public void testFindByListName() {
         //Given
+        taskListDao.deleteAll();
         TaskList taskList1 = new TaskList(LISTNAME, "Description1");
         //When
         taskListDao.save(taskList1);
@@ -77,6 +78,7 @@ public class TaskListDaoTestSuite {
     @Test
     public void testNamedQueries() {
         //Given
+
         Task task1 = new Task("Test: Study Hibernate", 3);
         Task task2 = new Task("Test: Practice Named Queries", 6);
         Task task3 = new Task("Test: Study native queries", 7);
@@ -110,12 +112,15 @@ public class TaskListDaoTestSuite {
         List<Task> longTasks = taskDao.retrieveLongTasks();
         List<Task> shortTasks = taskDao.retrieveShortTasks();
         List<Task> enoughTimeTasks = taskDao.retrieveTasksWithEnoughTime();
+        List<Task> durationLongerThanTasks = taskDao.retrieveTasksWithDurationLongerThan(6);
 
         //Then
         try {
             Assert.assertEquals(1, longTasks.size());
             Assert.assertEquals(3, shortTasks.size());
             Assert.assertEquals(3, enoughTimeTasks.size());
+            Assert.assertEquals(2, durationLongerThanTasks.size());
+
         } finally {
             //CleanUp
             taskListDao.deleteById(id);
