@@ -19,8 +19,11 @@ public class Processor {
     }
 
     public void openGame() {
-        System.out.println("Welcome in Sudoku Game:");
-        System.out.println("Instruction- will be later\n");
+        System.out.println("Welcome in Sudoku Solution Program:");
+        System.out.println("Instruction:\nIf you want solve sudoku, enter data first.");
+        System.out.println("First number-column, Second number-row, Third number - value");
+        System.out.println("For example 1 2 4  1-column number, 2-row number, 3-value in SUDOKU");
+        System.out.println("When data are complete, write 'SUDOKU' to get solution of sudoku");
         System.out.println(sudokuBoard + "\n");
     }
 
@@ -32,11 +35,10 @@ public class Processor {
     }
 
     public void changeValue() {
-        System.out.println("You Can set Value in Sudoku, First number-column, Second number-row, Third number - value");
         String userInput = scanner.nextLine();
         if (userInput.equals("SUDOKU")) {
-            System.out.println("Make Algorithm");
             algorithm.solveSudoku();
+            System.out.println("Solution SUDOKU");
             System.out.println(sudokuBoard);
             changeValue = true;
         } else {
@@ -48,12 +50,12 @@ public class Processor {
             int value = Integer.parseInt(splitValue[2]);
 
             sudokuBoard.getSudokuRowList().get(column - 1).sudokuElementList.get(row - 1).setValue(value);
+            System.out.println("Your values have been entered into sudoku. Column "+column+" Row " + row + " Value " +value);
             System.out.println(sudokuBoard);
 
-            System.out.println("Algorithm solve");
             algorithm.findSolve();
             System.out.println("\n");
-           // System.out.println(sudokuBoard + "\n");
+
         }
     }
 

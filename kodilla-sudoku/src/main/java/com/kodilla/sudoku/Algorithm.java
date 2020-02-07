@@ -1,7 +1,5 @@
 package com.kodilla.sudoku;
 
-import java.util.List;
-
 public class Algorithm {
 
     final SudokuBoard sudokuBoard;
@@ -18,6 +16,12 @@ public class Algorithm {
 
                 boolean check = sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getValue() == -1;
                 Integer toRemove = sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getValue();
+
+                if(!check){
+                    sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).listToSolve.clear();
+                }
+
+
                 if (!check) {
                     for (int k = 0; k < Processor.SIZE; k++) {
                         sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(k).listToSolve.remove(toRemove);
@@ -85,8 +89,8 @@ public class Algorithm {
         for (int i = 0; i < Processor.SIZE; i++) {
             for (int j = 0; j < Processor.SIZE; j++) {
                 if ((sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).listToSolve.size() == 1)
-                        && ((sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getValue() == -1)))
-                    System.out.println("In Field =" + (i + 1) + "," + (j + 1) + " Should write" + sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).listToSolve);
+                        && ((sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getValue() == -1))) ;
+                System.out.println("In Field =" + (i + 1) + "," + (j + 1) + " Should write" + sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).listToSolve);
             }
         }
     }
@@ -94,7 +98,6 @@ public class Algorithm {
     public void solveSudoku() {
 
         boolean endSolution = false;
-        List<String> endSolutionList = null;
 
         while (!endSolution) {
 
@@ -104,21 +107,26 @@ public class Algorithm {
 
                     boolean check1 = sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).listToSolve.size() == 1;
                     boolean check2 = sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getValue() == -1;
-                         if (check1 && check2) {
-                        sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).value =
-                                sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).listToSolve.get(0);
-                        System.out.println("SOLVE START");
-                        endSolutionList.add("End Solution List: " + i + " , " + j);
-                              if (endSolutionList.size()==Processor.SIZE * Processor.SIZE) {
-                                endSolution = true;
-                        }
+
+
+                    if (check1 && check2) {
+                        int solve = sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getListToSolve().get(0);
+                        sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).setValue(solve);
+              //          System.out.println("IN FIELD  " + (i + 1) + " " + (j + 1) + " PUT VALUE " + solve);
+                        i = 0;
+                        j = 0;
+                        this.findSolve();
+               //         System.out.println(sudokuBoard);
                     }
                 }
             }
-
+            endSolution = true;
         }
-
     }
+
 }
+
+
+
 
 

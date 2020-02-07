@@ -81,9 +81,9 @@ public class CompanyDaoTestSuite {
         employeeDao.save(stephanieClarckson);
         employeeDao.save(lindaKovalsky);
         //When
-        List<Employee> quantity = employeeDao.retrieveEmployeeByLastname("Smith");
+        List<Employee> ListEmployee = employeeDao.retrieveEmployeeByLastname("Smith");
         //Then
-        Assert.assertEquals(1,quantity.size());
+        Assert.assertEquals(1,ListEmployee.size());
         //CleanUp
         employeeDao.deleteAll();
     }
@@ -121,7 +121,7 @@ public class CompanyDaoTestSuite {
         int greyMatterId = greyMatter.getId();
 
         //When
-        List<Company> filterByCompany =companyDao.retriveCompanyByName("Sof");
+        List<Company> filterByCompany =companyDao.retrieveCompanyByName("Sof");
         //Then
         Assert.assertEquals(1,filterByCompany.size());
         //

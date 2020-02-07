@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedNativeQuery(
-        name = "Company.retriveCompanyByName",
+        name = "Company.retrieveCompanyByName",
         query = "SELECT * FROM COMPANIES " +
-                "WHERE name LIKE :COMPANY_NAME",
+                "WHERE  SUBSTRING(COMPANY_NAME,1,3) = :COMPANY_NAME",
         resultClass = Company.class
 )
 
