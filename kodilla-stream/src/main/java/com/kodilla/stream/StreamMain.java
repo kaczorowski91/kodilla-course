@@ -1,6 +1,8 @@
 package com.kodilla.stream;
 
 import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.book.Book;
+import com.kodilla.stream.book.BookDirectory;
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
 
@@ -15,9 +17,10 @@ public class StreamMain {
 
         Forum forum = new Forum();
         int year = LocalDate.now().getYear();
+
         Map<Integer, ForumUser> theResultStringOfUsers = forum.getList().stream()
                 .filter(forumUser -> forumUser.getSex() == 'M')
-                .filter(forumUser -> year - forumUser.getBirthday().getYear() > 20)
+                .filter(forumUser -> year-forumUser.getBirthday().getYear() > 20)
                 .filter(forumUser -> forumUser.getPostQuantity() > 0)
                 .collect(Collectors.toMap(ForumUser::getId, forumUser -> forumUser));
 
