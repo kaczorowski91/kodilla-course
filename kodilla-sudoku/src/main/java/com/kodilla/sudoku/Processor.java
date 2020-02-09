@@ -36,28 +36,33 @@ public class Processor {
 
     public void changeValue() {
         String userInput = scanner.nextLine();
-        if (userInput.equals("SUDOKU")) {
-            algorithm.solveSudoku();
-            System.out.println("Solution SUDOKU");
-            System.out.println(sudokuBoard);
-            changeValue = true;
-        } else {
+        String userInputToUpperCase= userInput.toUpperCase();
 
-            String[] splitValue = userInput.split(" ");
+        try {
+            if (userInputToUpperCase.equals("SUDOKU")) {
+                algorithm.solveSudoku();
+                System.out.println("Solution SUDOKU");
+                System.out.println(sudokuBoard);
+                changeValue = true;
+            } else {
 
-            int column = Integer.parseInt(splitValue[0]);
-            int row = Integer.parseInt(splitValue[1]);
-            int value = Integer.parseInt(splitValue[2]);
+                String[] splitValue = userInput.split(" ");
 
-            sudokuBoard.getSudokuRowList().get(column - 1).sudokuElementList.get(row - 1).setValue(value);
-            System.out.println("Your values have been entered into sudoku. Column "+column+" Row " + row + " Value " +value);
-            System.out.println(sudokuBoard);
+                int column = Integer.parseInt(splitValue[0]);
+                int row = Integer.parseInt(splitValue[1]);
+                int value = Integer.parseInt(splitValue[2]);
 
-            algorithm.findSolve();
-            System.out.println("\n");
+                sudokuBoard.getSudokuRowList().get(column - 1).sudokuElementList.get(row - 1).setValue(value);
+                System.out.println("Your values have been entered into sudoku. Column "+column+" Row " + row + " Value " +value);
+                System.out.println(sudokuBoard);
+            }
+        }catch(NumberFormatException e) {
+            System.out.println("The entered value is not correct. If you want solve sudoku-please write SUDOKU, If you want complete, please write value Column, Row, Value");
+        }
+
 
         }
     }
 
 
-}
+
