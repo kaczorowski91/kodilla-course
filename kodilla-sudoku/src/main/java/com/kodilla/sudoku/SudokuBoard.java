@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class SudokuBoard {
+public class SudokuBoard extends Prototype {
 
     private List<SudokuRow> sudokuRowList;
 
@@ -25,6 +25,22 @@ public class SudokuBoard {
         return sudokuRowList.stream()
                 .map(SudokuRow::toString)
                 .collect(Collectors.joining("\n"));
+    }
+
+
+    public SudokuBoard deepCopy() throws CloneNotSupportedException {
+        SudokuBoard clonedSudokuBoard = (SudokuBoard) super.clone();
+        clonedSudokuBoard.sudokuRowList = new ArrayList<>();
+
+        for (SudokuRow theSudokuRowList : sudokuRowList) {
+            SudokuRow clonedSudokuRowList = new SudokuRow();
+            for (SudokuElement sudokuElement : theSudokuRowList.getSudokuElementList()) {
+
+                clonedSudokuRowList.getSudokuElementList().add(sudokuElement);
+            }
+            clonedSudokuBoard.getSudokuRowList().add(clonedSudokuRowList);
+        }
+        return clonedSudokuBoard;
     }
 }
 

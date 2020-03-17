@@ -8,21 +8,127 @@ public class Algorithm {
         this.sudokuBoard = sudokuBoard;
     }
 
-    public void findSolve() {
+    public void solveSudoku() {
+        for (int i = 0; i < ((Processor.SIZE * Processor.SIZE)); i++) {
+            this.findValueInFieldColumnAndRow();
+            this.findValueInOthersColumnAndRow();
+        }
+
+        if (!this.checkSudokuSolved()) {
+
+            try {
+                SudokuBoard deepCopySudokuBoards = sudokuBoard.deepCopy();
+                System.out.println("DEEP COPY TRY");
+                System.out.println(deepCopySudokuBoards);
+            } catch (CloneNotSupportedException e) {
+                System.out.println(e);
+            }
+
+        }
+    }
+
+    public boolean checkSudokuSolved() {
+        boolean sudokuSolved = true;
+
+        for (int i = 0; i < Processor.SIZE; i++) {
+            for (int j = 0; j < Processor.SIZE; j++) {
+
+                while (sudokuSolved) {
+                    if (sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getValue() == -1) {
+                        sudokuSolved = false;
+                        System.out.println("Sudoku can't be solved - insufficient data ");
+
+                    }
+                }
+            }
+        }
+        return sudokuSolved;
+    }
+
+
+    public void findValueInFieldColumnAndRow() {
+
+        boolean endSolution = false;
+
+        while (!endSolution) {
+
+            for (int i = 0; i < Processor.SIZE; i++) {
+
+                for (int j = 0; j < Processor.SIZE; j++) {
+
+                    boolean check1 = sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).listToSolve.size() == 1;
+                    boolean check2 = sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getValue() == -1;
+
+                    if (check1 && check2) {
+                        int solve = sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getListToSolve().get(0);
+                        sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).setValue(solve);
+
+                        i = 0;
+                        j = 0;
+                        this.removeValueFromListToSolve();
+                    }
+                }
+                endSolution = true;
+            }
+        }
+    }
+
+    public void findValueInOthersColumnAndRow() {// Find unique value, through reviewing other fields in row and column and check that, they may have this value. If other fields count have this value, put it in correct field.
+
+        for (int i = 0; i < Processor.SIZE; i++) {  //Column number
+
+            for (int j = 0; j < Processor.SIZE; j++) { //Row number
+
+                if (sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getValue() == -1) {   // Check that field [i,j] is empty?
+
+                    for (int k = 0; k < sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).listToSolve.size(); k++) { // Loop for solveList in field
+
+                        int valueToSolve = sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).listToSolve.get(k);// Get value from solveList
+
+                        int rowCounter = 0;
+                        int columnCounter = 0;
+
+                        for (int l = 0; l < Processor.SIZE; l++) {    //For every field in row
+
+                            if (sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(l).getListToSolve().contains(valueToSolve)) {//check for this value is unique value in row.
+                                rowCounter++;
+                            }
+                        }
+                        if (rowCounter == 1) {
+                            sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).setValue(valueToSolve);
+                        }
+
+                        for (int l = 0; l < Processor.SIZE; l++) {    //For every field in column
+
+                            if (sudokuBoard.getSudokuRowList().get(l).sudokuElementList.get(j).getListToSolve().contains(valueToSolve)) {//check for this value is unique value in row.
+                                columnCounter++;
+                                this.removeValueFromListToSolve();
+
+                            }
+                        }
+                        if (columnCounter == 1) {
+                            sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).setValue(valueToSolve);
+                            this.removeValueFromListToSolve();
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void removeValueFromListToSolve() { //Remove correct value from solution list others fields in rows, columns and squares.
 
         for (int i = 0; i < Processor.SIZE; i++) {
 
             for (int j = 0; j < Processor.SIZE; j++) {
 
-                boolean check = sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getValue() == -1;
+                boolean isFieldEmpty = sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getValue() == -1;
                 Integer toRemove = sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getValue();
 
-                if(!check){
+                if (!isFieldEmpty) {
                     sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).listToSolve.clear();
-                }
 
-
-                if (!check) {
                     for (int k = 0; k < Processor.SIZE; k++) {
                         sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(k).listToSolve.remove(toRemove);
                         sudokuBoard.getSudokuRowList().get(k).sudokuElementList.get(j).listToSolve.remove(toRemove);
@@ -81,50 +187,15 @@ public class Algorithm {
                         sudokuBoard.getSudokuRowList().get(i - 1).sudokuElementList.get(j - 2).listToSolve.remove(toRemove);
                         sudokuBoard.getSudokuRowList().get(i - 1).sudokuElementList.get(j - 1).listToSolve.remove(toRemove);
                     }
-
                 }
-            }
-
-        }
-        for (int i = 0; i < Processor.SIZE; i++) {
-            for (int j = 0; j < Processor.SIZE; j++) {
-                if ((sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).listToSolve.size() == 1)
-                        && ((sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getValue() == -1))) ;
-                System.out.println("In Field =" + (i + 1) + "," + (j + 1) + " Should write" + sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).listToSolve);
             }
         }
     }
 
-    public void solveSudoku() {
-
-        boolean endSolution = false;
-
-        while (!endSolution) {
-
-            for (int i = 0; i < Processor.SIZE; i++) {
-
-                for (int j = 0; j < Processor.SIZE; j++) {
-
-                    boolean check1 = sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).listToSolve.size() == 1;
-                    boolean check2 = sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getValue() == -1;
-
-
-                    if (check1 && check2) {
-                        int solve = sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getListToSolve().get(0);
-                        sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).setValue(solve);
-              //          System.out.println("IN FIELD  " + (i + 1) + " " + (j + 1) + " PUT VALUE " + solve);
-                        i = 0;
-                        j = 0;
-                        this.findSolve();
-               //         System.out.println(sudokuBoard);
-                    }
-                }
-            }
-            endSolution = true;
-        }
-    }
 
 }
+
+
 
 
 
