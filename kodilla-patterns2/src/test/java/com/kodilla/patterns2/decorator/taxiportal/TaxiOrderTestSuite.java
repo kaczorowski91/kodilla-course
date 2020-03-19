@@ -1,8 +1,6 @@
 package com.kodilla.patterns2.decorator.taxiportal;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import org.mockito.BDDMockito;
 
 import java.math.BigDecimal;
 
@@ -86,7 +84,7 @@ public class TaxiOrderTestSuite {
         //When
         String description = theOrder.getDescription();
         //Then
-        assertEquals("Drive a course by Uber Network + child seat + child seat",description);
+        assertEquals("Drive a course by Taxi Uber Network + child seat + child seat",description);
     }
 
     @Test
@@ -112,7 +110,7 @@ public class TaxiOrderTestSuite {
         //When
         String description = theOrder.getDescription();
         //Then
-        assertEquals("Drive a course by Taxi Netwok variant VIP + child seat",description);
+        assertEquals("Drive a course by Taxi Network variant VIP + child seat",description);
 
 
     }

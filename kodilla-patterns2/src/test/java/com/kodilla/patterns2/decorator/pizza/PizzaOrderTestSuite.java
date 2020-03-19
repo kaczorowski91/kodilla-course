@@ -21,9 +21,8 @@ public class PizzaOrderTestSuite {
         BigDecimal theCost = thePizzaOrder.getCost();
         String description = thePizzaOrder.getDescription();
 
-        System.out.println(theCost+ description);
         //Then
-        Assert.assertEquals(new BigDecimal(100),theCost);
-        Assert.assertEquals("des",description);
+        Assert.assertEquals(new BigDecimal(48),theCost);
+        Assert.assertEquals("Pizza with ham with pineapple with extra garlic sauce + beer + beer with delivery",description);
     }
 }
