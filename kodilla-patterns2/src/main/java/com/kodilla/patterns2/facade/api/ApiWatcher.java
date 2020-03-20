@@ -1,6 +1,5 @@
 package com.kodilla.patterns2.facade.api;
 
-import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
@@ -11,12 +10,13 @@ import java.math.BigDecimal;
 
 @Aspect
 @Component
-public class Watcher {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Watcher.class);
+public class ApiWatcher {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ApiWatcher.class);
 
     @Before("execution(* com.kodilla.patterns2.facade.api.OrderFacade.processOrder(..)) " +
-            "&& args(theNumber) &&target(object)")
-    public void logEvent(BigDecimal theNumber, Object object) {
-        LOGGER.info("Loggin the event. Class: " + object.getClass().getName() + ", Args: " + theNumber);
+            "&& args(orderDto, userId) &&target(object)")
+    public void logEvent(OrderDto orderDto, Long userId, Object object) {
+        LOGGER.info("Login the event. Class: " + object.getClass().getName() + ", OrderDto: "
+                + orderDto+ ", UserID "+userId);
     }
 }

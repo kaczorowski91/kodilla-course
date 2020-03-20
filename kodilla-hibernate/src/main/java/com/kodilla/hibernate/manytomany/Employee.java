@@ -9,6 +9,11 @@ import java.util.List;
         name = "Employee.retrieveEmployeeByLastname",
         query = "FROM Employee WHERE lastname LIKE :LASTNAME"
 )
+@NamedQuery(
+        name = "Employee.retrieveEmployeeByPartOfLastName",
+        query = "FROM Employee WHERE lastname LIKE :LASTNAME"
+)
+
 
 @Entity
 @Table(name = "EMPLOYEES")

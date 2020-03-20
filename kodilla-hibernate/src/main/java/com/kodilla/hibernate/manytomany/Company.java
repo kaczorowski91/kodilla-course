@@ -12,6 +12,11 @@ import java.util.List;
         resultClass = Company.class
 )
 
+@NamedQuery(
+        name = "Company.retrieveCompanyByPartOfName",
+        query = "FROM Company WHERE name LIKE :COMPANY_NAME"
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
