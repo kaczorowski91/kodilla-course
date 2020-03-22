@@ -16,7 +16,7 @@ public class ApiWatcher {
     @Before("execution(* com.kodilla.patterns2.facade.api.OrderFacade.processOrder(..)) " +
             "&& args(orderDto, userId) &&target(object)")
     public void logEvent(OrderDto orderDto, Long userId, Object object) {
-        LOGGER.info("Login the event. Class: " + object.getClass().getName() + ", OrderDto: "
+        LOGGER.info("Logging the event. Class: " + object.getClass().getName() + ", OrderDto: "
                 + orderDto+ ", UserID "+userId);
     }
 }

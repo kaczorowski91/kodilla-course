@@ -10,13 +10,21 @@ public class ForumTopic implements Observable {
 
     public ForumTopic(String name) {
         observers = new ArrayList<>();
-        this.messages =new ArrayList<>();
+        messages =new ArrayList<>();
         this.name = name;
     }
 
-    public void addPost(String post){
+    public void addPost(String post) {
         messages.add(post);
         notifyObservers();
+    }
+
+    public List<String> getMessages() {
+        return messages;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
