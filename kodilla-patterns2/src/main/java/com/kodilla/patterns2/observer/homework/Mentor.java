@@ -1,7 +1,5 @@
 package com.kodilla.patterns2.observer.homework;
 
-import java.util.ArrayDeque;
-
 public class Mentor implements Observer {
     private final String name;
     private int taskInQueue;
@@ -21,7 +19,7 @@ public class Mentor implements Observer {
         taskInQueue++;
     }
 
-    public void check(TaskQueue taskQueue){
+    public void check(TaskQueue taskQueue) {
         taskQueue.removeTask();
         taskInQueue--;
     }
