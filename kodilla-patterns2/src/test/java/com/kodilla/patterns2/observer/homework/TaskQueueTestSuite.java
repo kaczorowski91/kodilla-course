@@ -23,7 +23,7 @@ public class TaskQueueTestSuite {
 
 
     @Test
-    public void testCheckRemoveFrom(){
+    public void testMentorCheckTaskInStudentQueue(){
         //Given
         StudentTaskQueue student1TaskQueue = new StudentTaskQueue();
         Mentor mentor1 = new Mentor("Menton1");
