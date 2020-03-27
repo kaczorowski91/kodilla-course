@@ -6,7 +6,7 @@ import java.util.List;
 public class CompanySalaryProcessor implements SalaryProcessor {
 
     @Override
-    public BigDecimal calculateSalarier(List<Employee> employees) {
+    public BigDecimal calculateSalaries(List<Employee> employees) {
         BigDecimal sum = BigDecimal.ZERO;
         for(Employee employee : employees){
             System.out.println(employee);
