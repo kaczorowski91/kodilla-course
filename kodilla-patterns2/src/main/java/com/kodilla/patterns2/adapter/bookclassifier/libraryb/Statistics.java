@@ -1,8 +1,4 @@
-package com.kodilla.patterns2.adapter.bookclasifier.libraryb;
-
-import com.kodilla.patterns2.adapter.bookclasifier.libraryb.Book;
-import com.kodilla.patterns2.adapter.bookclasifier.libraryb.BookSignature;
-import com.kodilla.patterns2.adapter.bookclasifier.libraryb.BookStatistics;
+package com.kodilla.patterns2.adapter.bookclassifier.libraryb;
 
 import java.util.Arrays;
 import java.util.Map;

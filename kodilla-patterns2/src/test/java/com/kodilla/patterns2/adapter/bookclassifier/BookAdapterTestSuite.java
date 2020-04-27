@@ -1,7 +1,6 @@
 package com.kodilla.patterns2.adapter.bookclassifier;
 
-import com.kodilla.patterns2.adapter.bookclasifier.MedianAdapter;
-import com.kodilla.patterns2.adapter.bookclasifier.librarya.Book;
+import com.kodilla.patterns2.adapter.bookclassifier.librarya.Book;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -24,7 +23,7 @@ public class BookAdapterTestSuite {
         //When
         int median = medianAdapter.publicationYearMedian(theBooks);
         //Then
-        Assert.assertEquals(median,2005,0);
+        Assert.assertEquals(2005,median,0);
 
     }
 }
