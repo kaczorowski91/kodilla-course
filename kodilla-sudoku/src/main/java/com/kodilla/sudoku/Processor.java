@@ -18,6 +18,13 @@ public class Processor {
         this.algorithm = new Algorithm(sudokuBoard);
     }
 
+    public void game() {
+        this.openGame();
+        while (!this.changeValue) {
+            this.changeValue();
+        }
+    }
+
     public void openGame() {
         System.out.println("Welcome in Sudoku Solution Program:");
         System.out.println("Instruction:\nIf you want solve sudoku, enter data first.");
@@ -27,19 +34,12 @@ public class Processor {
         System.out.println(sudokuBoard + "\n");
     }
 
-    public void game() {
-        this.openGame();
-        while (!this.changeValue) {
-            this.changeValue();
-        }
-    }
-
     public void changeValue() {
         String userInput = scanner.nextLine();
         String userInputToUpperCase = userInput.toUpperCase();
 
         try {
-            if (userInputToUpperCase.equals("SUDOKU")) {
+            if (userInputToUpperCase.equals(sudoku)) {
                 algorithm.solveSudoku();
                 System.out.println("Solution SUDOKU");
                 System.out.println(sudokuBoard);

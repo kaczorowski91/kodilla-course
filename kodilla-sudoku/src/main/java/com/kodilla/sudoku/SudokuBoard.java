@@ -34,15 +34,16 @@ public class SudokuBoard extends Prototype {
 
         for (SudokuRow theSudokuRowList : sudokuRowList) {
             SudokuRow clonedSudokuRowList = new SudokuRow();
-            for (SudokuElement sudokuElement : theSudokuRowList.getSudokuElementList()) {
-
-                clonedSudokuRowList.getSudokuElementList().add(sudokuElement);
+            List<SudokuElement> clonedSudokuRowListElements = clonedSudokuRowList.getSudokuElementList();
+            for (int i = 0; i < clonedSudokuRowListElements.size(); i++) {
+                SudokuElement elementToCopy = theSudokuRowList.getSudokuElementList().get(i);
+                clonedSudokuRowListElements.get(i).setValue(elementToCopy.getValue());
             }
             clonedSudokuBoard.getSudokuRowList().add(clonedSudokuRowList);
         }
         return clonedSudokuBoard;
+
     }
 }
-
 
 

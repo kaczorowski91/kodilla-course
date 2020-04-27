@@ -15,10 +15,10 @@ public class Algorithm {
         }
 
         if (!this.checkSudokuSolved()) {
-
             try {
+                System.out.println("Sudoku can't be solved - insufficient data ");
+                System.out.println("DEEP COPY Algorithm after check");
                 SudokuBoard deepCopySudokuBoards = sudokuBoard.deepCopy();
-                System.out.println("DEEP COPY TRY");
                 System.out.println(deepCopySudokuBoards);
             } catch (CloneNotSupportedException e) {
                 System.out.println(e);
@@ -36,7 +36,6 @@ public class Algorithm {
                 while (sudokuSolved) {
                     if (sudokuBoard.getSudokuRowList().get(i).sudokuElementList.get(j).getValue() == -1) {
                         sudokuSolved = false;
-                        System.out.println("Sudoku can't be solved - insufficient data ");
 
                     }
                 }
